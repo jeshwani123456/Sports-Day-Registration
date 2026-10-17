@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sports Day Registration</title>
+</head>
+<body>
+
+    <h1 align="center">Sports Day Registration Form</h1>
+    <p align="center">Register here to participate in Sports Day events!</p>
+
+    <hr>
+
+    <form>
+        <label>Student Name:</label>
+        <input type="text" name="studentname" required>
+        <br><br>
+
+        <label>Roll Number:</label>
+        <input type="text" name="rollnumber" required>
+        <br><br>
+
+        <label>Email Address:</label>
+        <input type="email" name="email" required>
+        <br><br>
+
+        <label>Phone Number:</label>
+        <input type="tel" name="phone" required>
+        <br><br>
+
+        <label>Department:</label>
+        <select name="department" required>
+            <option value="">Select Department</option>
+            <option>CSE</option>
+            <option>ECE</option>
+            <option>EEE</option>
+            <option>IT</option>
+            <option>Mechanical</option>
+            <option>Civil</option>
+        </select>
+        <br><br>
+
+        <label>Year of Study:</label>
+        <select name="year" required>
+            <option value="">Select Year</option>
+            <option>1st Year</option>
+            <option>2nd Year</option>
+            <option>3rd Year</option>
+            <option>4th Year</option>
+        </select>
+        <br><br>
+
+        <label>Gender:</label>
+        <input type="radio" name="gender" value="Male" required> Male
+        <input type="radio" name="gender" value="Female"> Female
+        <br><br>
+
+        <label>Select Sports Event:</label>
+        <select name="sport" required>
+            <option value="">Choose a Sport</option>
+            <option>Running Race</option>
+            <option>Cricket</option>
+            <option>Football</option>
+            <option>Volleyball</option>
+            <option>Badminton</option>
+            <option>Kabaddi</option>
+            <option>Long Jump</option>
+            <option>Shot Put</option>
+        </select>
+        <br><br>
+
+        <label>Event Date:</label>
+        <input type="date" name="eventdate" required>
+        <br><br>
+
+        <label>
+            <input type="checkbox" required>
+            I agree to participate in the selected sports event.
+        </label>
+        <br><br>
+
+        <button type="submit">Register</button>
+        <button type="reset">Clear Form</button>
+    </form>
+
+    <hr>
+    <p align="center">Organized by the College Sports Committee</p>
+
+</body>
+</html>
