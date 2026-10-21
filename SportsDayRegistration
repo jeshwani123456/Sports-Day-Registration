@@ -1,0 +1,166 @@
+import java.util.Scanner;
+
+public class SportsDayRegistration {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("==================================");
+        System.out.println("   SPORTS DAY REGISTRATION FORM");
+        System.out.println("==================================");
+
+        // Student Name
+        System.out.print("Enter Student Name: ");
+        String studentName = sc.nextLine();
+
+        // Roll Number
+        System.out.print("Enter Roll Number: ");
+        String rollNumber = sc.nextLine();
+
+        // Email Address
+        System.out.print("Enter Email Address: ");
+        String email = sc.nextLine();
+
+        // Phone Number
+        String phone;
+        while (true) {
+            System.out.print("Enter 10-digit Phone Number: ");
+            phone = sc.nextLine();
+
+            if (phone.matches("[0-9]{10}")) {
+                break;
+            }
+
+            System.out.println(
+                "Invalid phone number! Enter exactly 10 digits."
+            );
+        }
+
+        // Department
+        System.out.println("\nSelect Department:");
+        System.out.println("1. CSE");
+        System.out.println("2. ECE");
+        System.out.println("3. EEE");
+        System.out.println("4. IT");
+        System.out.println("5. Mechanical");
+        System.out.println("6. Civil");
+        System.out.print("Enter choice (1-6): ");
+
+        int departmentChoice = readChoice(sc, 1, 6);
+
+        String[] departments = {
+            "CSE", "ECE", "EEE", "IT", "Mechanical", "Civil"
+        };
+        String department = departments[departmentChoice - 1];
+
+        // Year of Study
+        System.out.println("\nSelect Year of Study:");
+        System.out.println("1. 1st Year");
+        System.out.println("2. 2nd Year");
+        System.out.println("3. 3rd Year");
+        System.out.println("4. 4th Year");
+        System.out.print("Enter choice (1-4): ");
+
+        int yearChoice = readChoice(sc, 1, 4);
+
+        String[] years = {
+            "1st Year", "2nd Year", "3rd Year", "4th Year"
+        };
+        String year = years[yearChoice - 1];
+
+        // Gender
+        System.out.println("\nSelect Gender:");
+        System.out.println("1. Male");
+        System.out.println("2. Female");
+        System.out.print("Enter choice (1-2): ");
+
+        int genderChoice = readChoice(sc, 1, 2);
+        String gender = genderChoice == 1 ? "Male" : "Female";
+
+        // Sports Event
+        System.out.println("\nSelect Sports Event:");
+        System.out.println("1. Running Race");
+        System.out.println("2. Cricket");
+        System.out.println("3. Football");
+        System.out.println("4. Volleyball");
+        System.out.println("5. Badminton");
+        System.out.println("6. Kabaddi");
+        System.out.println("7. Long Jump");
+        System.out.println("8. Shot Put");
+        System.out.print("Enter choice (1-8): ");
+
+        int sportChoice = readChoice(sc, 1, 8);
+
+        String[] sports = {
+            "Running Race", "Cricket", "Football", "Volleyball",
+            "Badminton", "Kabaddi", "Long Jump", "Shot Put"
+        };
+        String sport = sports[sportChoice - 1];
+
+        // Event Date
+        System.out.print("\nEnter Event Date (DD-MM-YYYY): ");
+        String eventDate = sc.nextLine();
+
+        // Agreement
+        System.out.print(
+            "Do you agree to participate? (yes/no): "
+        );
+        String agreement = sc.nextLine();
+
+        if (!agreement.equalsIgnoreCase("yes")) {
+            System.out.println(
+                "\nRegistration cancelled. Agreement is required."
+            );
+            sc.close();
+            return;
+        }
+
+        // Display Registration Details
+        System.out.println("\n==================================");
+        System.out.println(" REGISTRATION SUCCESSFULLY COMPLETED!");
+        System.out.println("==================================");
+
+        System.out.println("Student Name : " + studentName);
+        System.out.println("Roll Number  : " + rollNumber);
+        System.out.println("Email        : " + email);
+        System.out.println("Phone Number : " + phone);
+        System.out.println("Department   : " + department);
+        System.out.println("Year         : " + year);
+        System.out.println("Gender       : " + gender);
+        System.out.println("Sports Event : " + sport);
+        System.out.println("Event Date   : " + eventDate);
+
+        System.out.println("==================================");
+        System.out.println(
+            "Organized by the College Sports Committee"
+        );
+
+        sc.close();
+    }
+
+    // Method to validate menu choices
+    public static int readChoice(
+            Scanner sc, int min, int max) {
+
+        while (true) {
+            String input = sc.nextLine();
+
+            try {
+                int choice = Integer.parseInt(input);
+
+                if (choice >= min && choice <= max) {
+                    return choice;
+                }
+
+            } catch (NumberFormatException e) {
+                // Handle non-numeric input
+            }
+
+            System.out.print(
+                "Invalid choice! Enter a number from "
+                + min + " to " + max + ": "
+            );
+        }
+    }
+}
