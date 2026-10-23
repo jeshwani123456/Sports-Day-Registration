@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sports-day-registration
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sports-day-registration
+  template:
+    metadata:
+      labels:
+        app: sports-day-registration
+    spec:
+      containers:
+        - name: sports-day-registration
+          image: sports-day-registration:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+
